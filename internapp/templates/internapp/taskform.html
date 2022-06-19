@@ -1,0 +1,27 @@
+{% extends 'internapp/base2.html' %}
+{% block content %}
+{% if messages %}
+{% for message in messages %}
+{{message}} 
+{% endfor %}
+{% endif %}
+<div class="row">
+    <div class="col-sm-8">
+        <div class="l-form">
+        <h2 class="text-center">Task Upload Form</h2>
+        <form class="" action ="" method="POST" novalidate enctype="multipart/form-data">
+            {% csrf_token %}
+            {% if form.Non_field_errors %}
+            {% for error in form.Non_field_errors %}
+            {{error}}
+            {% endfor %}
+            {% endif %}
+            {{form.as_p}}
+        <input type="submit",class= "btn btn-submit" value="Upload"><br><br>
+        </form>
+        <button class="f-button"><a  href="{% url 'homepage' %}">Back</a></button>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

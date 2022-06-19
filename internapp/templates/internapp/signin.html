@@ -1,0 +1,27 @@
+{% extends 'internapp/base2.html' %}
+{% block content %}
+{% if messages %}
+{% for message in messages %}
+{{message}} 
+{% endfor %}
+{% endif %}
+<div class="row">
+    <div class="naxa-head">
+        <h2>Welcome To Naxa</h2>
+    </div>
+    <div class="col-sm-8">
+        <div class="l-form"">
+            <h2 class="text-center">SigninForm</h2> 
+        <form class=" action ="" method="POST" novalidate>
+            {% csrf_token %}
+            {% for fm in form %}
+            {{fm.label_tag}} {{fm}}  {{fm.errors|striptags}}<br><br>
+            {% endfor %}
+        <input type="submit",class= "btn btn-submit" value="Register"><br>
+        </form>
+        <p>Already have an Account <button class="f-button"><a  href="{% url 'loginpage' %}">Login</a></button></p>    
+    </div>
+    </div>
+</div>
+
+{% endblock content %}

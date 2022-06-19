@@ -1,0 +1,24 @@
+{% extends 'internapp/base2.html' %}
+{% block content %}
+{% if messages %}
+{% for message in messages %}
+{{message}} 
+{% endfor %}
+{% endif %}
+<div class="row">
+
+    <div class="col-sm-8">
+        <div class="l-form">
+            <h2 class="text-center">Attendence</h2> 
+        <form class="" action ="" method="POST" novalidate>
+            {% csrf_token %}  
+            {{form.as_p}}
+        <input type="submit",class= "btn btn-submit" value="Submit"><br><br>
+        
+        </form>
+        <button class="f-button"><a href="{% url 'homepage' %}">Back</a></button>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

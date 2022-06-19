@@ -1,0 +1,17 @@
+{% extends 'internapp/base2.html' %}
+{% block content %}
+{% for i in task_list %}
+<h2><ul class="list-unstyled">Task:</h2>
+    <li>
+        <h4>{{i.task_heading}}</h4></li>
+        <li>{{i.task_description}}</li>
+<h5>Note:</h5>
+    <li>{{i.note}}</li>
+    <h6>Belogs To:</h6>
+        <li>{{i.belongs_to}}</li>
+</ul>
+<br><br>
+<button class="f-button"><a href="{% url 'homepage' %}">Back</a></button>
+        
+{% endfor %}
+{% endblock content %}
